@@ -47,5 +47,31 @@ const pedirCarta = () => {
     return carta;
 }
 
-pedirCarta();
-console.log(deck);
+
+//
+const valorCarta = ( carta ) => {
+
+    //constante llamada valor para extraer el primer valor del string
+    const valor = carta.substring(0, carta.length - 1);
+    // 2 == 2, 3 == 3, 10 == 10...
+
+    //Forma resumida con ternario
+    return ( isNaN(valor) )  ? 
+           ( valor === 'A' ) ? 11 : 10 
+           : valor * 1;
+
+    //Forma un poco más larga con if-else
+    // let puntos = 0;
+    // if( isNaN(valor) ) {
+    //     console.log('No es un número');
+    //     puntos = ( valor === 'A' ) ? 11 : 10;
+
+    // }else {
+    //     console.log('Es un número');
+    //     puntos = valor * 1;
+    // }
+    // console.log(puntos)
+}
+
+const valor = valorCarta( pedirCarta() );
+console.log({ valor });
